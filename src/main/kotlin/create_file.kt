@@ -5,7 +5,7 @@ import java.io.File
 data class Word(
     val original: String,
     val translate: String,
-    val correctAnswerCount: Int? = 0,
+    val correctAnswerCount: Int = 0,
 )
 
 fun main() {
@@ -16,7 +16,11 @@ fun main() {
     wordFile.forEachLine {
         val lines = it.split("|", "+");
         val word: Word =
-            Word(original = lines[0], translate = lines[1], correctAnswerCount = lines[2].toIntOrNull() ?: 0);
+            Word(
+                original = lines[0],
+                translate = lines[1],
+                correctAnswerCount = lines.getOrNull(2)?.toIntOrNull() ?: 0
+            );
         dictionary.add(word)
     }
     println(dictionary)
