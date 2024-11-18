@@ -8,13 +8,10 @@ data class Word(
     val correctAnswerCount: Int = 0,
 )
 
-fun main() {
-    val wordFile: File = File("words.txt")
-
+fun loadDictionary(wordFile: File): List<Word> {
     val dictionary: MutableList<Word> = mutableListOf()
-
     wordFile.forEachLine {
-        val lines = it.split("|", "+");
+        val lines = it.split("|");
         val word: Word =
             Word(
                 original = lines[0],
@@ -23,5 +20,23 @@ fun main() {
             );
         dictionary.add(word)
     }
-    println(dictionary)
+    return dictionary
+}
+
+fun main() {
+    val wordFile: File = File("words.txt")
+    val realizationLoadDictionary = loadDictionary(wordFile)
+    println(realizationLoadDictionary)
+
+    var choice: Int
+    while (true) {
+        println("Меню:\n1 - Учить слова\n2 - Статистика\n0 - Выход")
+        choice = readln().toInt()
+        when (choice) {
+            1 -> println("Выбран пункт \"Учить слова\"")
+            2 -> println("Выбран пункт \"Статистика\"")
+            0 -> break
+            else -> println("Введите число 0, 1 или 2")
+        }
+    }
 }
