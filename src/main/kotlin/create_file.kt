@@ -11,7 +11,7 @@ data class Word(
 fun loadDictionary(wordFile: File): List<Word> {
     val dictionary: MutableList<Word> = mutableListOf()
     wordFile.forEachLine {
-        val lines = it.split("|");
+        val lines = it.split("|")
         val word: Word =
             Word(
                 original = lines[0],
@@ -27,16 +27,28 @@ fun main() {
     val wordFile: File = File("words.txt")
     val realizationLoadDictionary = loadDictionary(wordFile)
     println(realizationLoadDictionary)
+    val listOfAnswerLearned: MutableList<Word> = mutableListOf()
 
-    var choice: Int
     while (true) {
         println("Меню:\n1 - Учить слова\n2 - Статистика\n0 - Выход")
-        choice = readln().toInt()
+        val choice: Int = readln().toInt()
         when (choice) {
             1 -> println("Выбран пункт \"Учить слова\"")
-            2 -> println("Выбран пункт \"Статистика\"")
+            2 -> {
+                realizationLoadDictionary.filter { it.correctAnswerCount >= 3 }
+                    .forEach {
+                        if (it !in listOfAnswerLearned)
+                        listOfAnswerLearned.add(it)
+                    }
+                val learnedCount = listOfAnswerLearned.size
+                val totalCount = realizationLoadDictionary.size
+                val percent = learnedCount.toDouble() / totalCount.toDouble() * 100
+                println(String.format("Выучено %d из %d слов | %.0f%%\n", learnedCount, totalCount, percent))
+            }
+
             0 -> break
             else -> println("Введите число 0, 1 или 2")
         }
     }
+
 }
