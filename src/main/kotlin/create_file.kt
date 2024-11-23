@@ -35,18 +35,17 @@ fun main() {
             when (choice) {
                 1 -> {
                     var choiceOfUser: Int
-                    val notLearnedList = dictionary.filter { it.correctAnswerCount < 3 }
+                    val notLearnedList = dictionary.filter { it.correctAnswerCount < CORRECT_ANSWERS_TO_LEARN }
                     if (notLearnedList.isEmpty()) println("Все слова в словаре выучены!")
                     else {
-                        val questionWords = notLearnedList.shuffled().take(4)
-                        println("${questionWords.first().original}:")
-                        val shuffledQuestionWords = questionWords.shuffled()
-                        println("1 - ${shuffledQuestionWords[0].translate}\n2 - ${shuffledQuestionWords[1].translate}\n3 - ${shuffledQuestionWords[2].translate}\n4 - ${shuffledQuestionWords[3].translate}")
+                        val questionWords = notLearnedList.shuffled().take(ANSWER_OPTIONS)
+                        val originalWord: String = questionWords.random().original
+                        println(questionWords.mapIndexed { index, i -> "${index + 1} - ${i.translate}" }
+                            .joinToString("\n", "$originalWord: \n", "\n----------- \n0 - Меню"))
                         try {
                             choiceOfUser = readln().toInt()
-                            if (choiceOfUser !in 1..4){
+                            if (choiceOfUser !in 1..ANSWER_OPTIONS) {
                                 println("Выберите ответ 1, 2, 3 или 4")
-                                choiceOfUser = readln().toInt()
                             }
                         } catch (e: Exception) {
                             println("Выберите ответ 1, 2, 3 или 4")
@@ -55,7 +54,7 @@ fun main() {
                 }
 
                 2 -> {
-                    val learnedCount = dictionary.filter { it.correctAnswerCount >= 3 }
+                    val learnedCount = dictionary.filter { it.correctAnswerCount >= CORRECT_ANSWERS_TO_LEARN }
                         .size
                     val totalCount = dictionary.size
                     val percent = learnedCount.toDouble() / totalCount.toDouble() * 100
@@ -71,3 +70,6 @@ fun main() {
     }
 
 }
+
+const val ANSWER_OPTIONS = 4
+const val CORRECT_ANSWERS_TO_LEARN = 3
