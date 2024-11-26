@@ -40,6 +40,7 @@ fun main() {
             val choice: Int = readln().toInt()
             when (choice) {
                 1 -> {
+ KTB-08-ready-question-block
                     while (true) {
                         var choiceOfUser: Int
                         val notLearnedList = dictionary.filter { it.correctAnswerCount < CORRECT_ANSWERS_TO_LEARN }
@@ -68,6 +69,7 @@ fun main() {
 
                 2 -> {
                     val learnedCount = dictionary.filter { it.correctAnswerCount >= CORRECT_ANSWERS_TO_LEARN }.size
+
                     val totalCount = dictionary.size
                     val percent = learnedCount.toDouble() / totalCount.toDouble() * 100
                     println(String.format("Выучено %d из %d слов | %.0f%%\n", learnedCount, totalCount, percent))
