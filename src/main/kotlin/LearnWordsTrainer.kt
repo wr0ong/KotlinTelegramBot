@@ -1,5 +1,3 @@
-import org.example.ANSWER_OPTIONS
-import org.example.CORRECT_ANSWERS_TO_LEARN
 import org.example.Word
 import java.io.File
 
@@ -14,26 +12,26 @@ data class Question(
     val correctAnswer: Word,
 )
 
-class LearnWordsTrainer {
+class LearnWordsTrainer(private val learnedAnswerCount: Int = 3, private val countOfQuestionWord: Int = 4) {
 
     private var question: Question? = null
     private val dictionary: List<Word> = loadDictionary()
 
     fun getStatistics(): Statistics {
-        val learnedCount: Int = dictionary.filter { it.correctAnswerCount >= CORRECT_ANSWERS_TO_LEARN }.size
+        val learnedCount: Int = dictionary.filter { it.correctAnswerCount >= learnedAnswerCount }.size
         val totalCount: Int = dictionary.size
         val percent = learnedCount * 100 / totalCount
         return Statistics(learnedCount, totalCount, percent)
     }
 
     fun getNextQuestion(): Question? {
-        val notLearnedList = dictionary.filter { it.correctAnswerCount < CORRECT_ANSWERS_TO_LEARN }
+        val notLearnedList = dictionary.filter { it.correctAnswerCount < learnedAnswerCount }
         if (notLearnedList.isEmpty()) return null
-        val questionWords = if (notLearnedList.size < ANSWER_OPTIONS) {
-            val learnedList = dictionary.filter { it.correctAnswerCount >= CORRECT_ANSWERS_TO_LEARN }.shuffled()
-            notLearnedList.shuffled().take(ANSWER_OPTIONS) + learnedList.take(ANSWER_OPTIONS - notLearnedList.size)
+        val questionWords = if (notLearnedList.size < countOfQuestionWord) {
+            val learnedList = dictionary.filter { it.correctAnswerCount >= learnedAnswerCount }.shuffled()
+            notLearnedList.shuffled().take(countOfQuestionWord) + learnedList.take(countOfQuestionWord - notLearnedList.size)
         } else {
-            notLearnedList.shuffled().take(ANSWER_OPTIONS)
+            notLearnedList.shuffled().take(countOfQuestionWord)
         }.shuffled()
 
         val correctAnswer = questionWords.random()

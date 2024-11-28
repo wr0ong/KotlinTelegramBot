@@ -61,6 +61,3 @@ fun main() {
     }
 
 }
-
-const val ANSWER_OPTIONS = 4
-const val CORRECT_ANSWERS_TO_LEARN = 3
