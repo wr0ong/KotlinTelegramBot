@@ -1,16 +1,63 @@
 package org.example
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+import LearnWordsTrainer
+import Question
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+data class Word(
+    val original: String,
+    val translate: String,
+    var correctAnswerCount: Int = 0,
+)
+
+fun Question.asConsoleString(): String {
+    val variants = this.variants.mapIndexed { index, i -> "${index + 1} - ${i.translate}" }
+        .joinToString("\n", "${this.correctAnswer.original}: \n", "\n----------- \n0 - Меню")
+    return variants
+}
+
+fun main() {
+
+    val trainer = try {
+        LearnWordsTrainer()
+    } catch (e: Exception) {
+        println("Невозможно загрузить словарь")
+        return
     }
+
+    while (true) {
+        println("Меню:\n1 - Учить слова\n2 - Статистика\n0 - Выход")
+        try {
+            val choice: Int = readln().toInt()
+            when (choice) {
+                1 -> {
+                    while (true) {
+                        val question = trainer.getNextQuestion()
+                        if (question == null) {
+                            println("Все слова в словаре выучены!")
+                            break
+                        } else {
+                            println(question.asConsoleString())
+                            val choiceOfUser: Int? = readln().toIntOrNull()
+                            if (choiceOfUser == 0) break
+
+                            if (trainer.checkAnswer(choiceOfUser?.minus(1))) {
+                                println("Верно!")
+                            } else println("Неверно! ${question.correctAnswer.original} - это ${question.correctAnswer.translate}")
+                        }
+                    }
+                }
+
+                2 -> {
+                    val statistics = trainer.getStatistics()
+                    println("Выучено ${statistics.learnedCount} из ${statistics.totalCount}  слов | ${statistics.percent}%")
+                }
+
+                0 -> break
+                else -> println("Введите число 0, 1 или 2")
+            }
+        } catch (e: Exception) {
+            println("Введите число 0, 1 или 2")
+        }
+    }
+
 }
