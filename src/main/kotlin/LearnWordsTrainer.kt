@@ -75,7 +75,7 @@ class LearnWordsTrainer(
                         original = lines[0],
                         translate = lines[1],
                         correctAnswerCount = lines.getOrNull(2)?.toIntOrNull() ?: 0
-                    );
+                    )
                 dictionary.add(word)
             }
             return dictionary
