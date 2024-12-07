@@ -20,6 +20,10 @@ class LearnWordsTrainer(
     private var question: Question? = null
     private val dictionary: List<Word> = loadDictionary()
 
+    fun getCorrectAnswer(): String {
+        return "${question?.correctAnswer?.translate} - это ${question?.correctAnswer?.original}"
+    }
+
     fun getStatistics(): Statistics {
         val learnedCount: Int = dictionary.filter { it.correctAnswerCount >= learnedAnswerCount }.size
         val totalCount: Int = dictionary.size
@@ -32,7 +36,8 @@ class LearnWordsTrainer(
         if (notLearnedList.isEmpty()) return null
         val questionWords = if (notLearnedList.size < countOfQuestionWord) {
             val learnedList = dictionary.filter { it.correctAnswerCount >= learnedAnswerCount }.shuffled()
-            notLearnedList.shuffled().take(countOfQuestionWord) + learnedList.take(countOfQuestionWord - notLearnedList.size)
+            notLearnedList.shuffled()
+                .take(countOfQuestionWord) + learnedList.take(countOfQuestionWord - notLearnedList.size)
         } else {
             notLearnedList.shuffled().take(countOfQuestionWord)
         }.shuffled()
