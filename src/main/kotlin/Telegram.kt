@@ -18,26 +18,27 @@ fun main(args: Array<String>) {
 
         updateId = updateIdStringRegex.find(updates)?.groups?.get(1)?.value?.toIntOrNull()?.plus(1) ?: continue
         val message = messageTextRegex.find(updates)?.groups?.get(1)?.value ?: continue
-        chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toIntOrNull() ?: continue
-        val data = dataRegex.find(updates)?.groups?.get(1)?.value
+        chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
+        var data = dataRegex.find(updates)?.groups?.get(1)?.value
 
         if (message.lowercase() == START_OF_BOT) {
             telegramBotService.sendMenu(chatId)
         }
         if (data?.lowercase() == STATISTICS_CLICKED) {
+            val statisticOfTrainer = trainer.getStatistics()
             telegramBotService.sendMessage(
                 chatId,
-                "Выучено ${trainer.getStatistics().learnedCount} из ${trainer.getStatistics().totalCount}  слов | ${trainer.getStatistics().percent}%"
+                "Выучено ${statisticOfTrainer.learnedCount} из ${statisticOfTrainer.totalCount}  слов | ${statisticOfTrainer.percent}%"
             )
-        chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
-        val data = dataRegex.find(updates)?.groups?.get(1)?.value
+            chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
+            data = dataRegex.find(updates)?.groups?.get(1)?.value
 
-        if (message.lowercase() == "/start") {
-            telegramBotService.sendMenu(chatId)
-        }
-        if (data?.lowercase() == STATISTICS_CLICKED) {
-            telegramBotService.sendMessage(chatId, "Выучено 10 слов из 10 | 100%")
+            if (message.lowercase() == START_OF_BOT) {
+                telegramBotService.sendMenu(chatId)
+            }
+            if (data?.lowercase() == STATISTICS_CLICKED) {
+                telegramBotService.sendMessage(chatId, "Выучено 10 слов из 10 | 100%")
+            }
         }
     }
-
 }
