@@ -1,4 +1,3 @@
-import org.example.Word
 import java.io.File
 
 data class Statistics(
@@ -85,6 +84,12 @@ class LearnWordsTrainer(
     }
 
 }
+
+data class Word(
+    val original: String,
+    val translate: String,
+    var correctAnswerCount: Int = 0,
+)
 
 const val LEARNED_ANSWER_COUNT = 3
 const val COUNT_OF_QUESTION_WORD = 4
