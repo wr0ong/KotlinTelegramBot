@@ -3,7 +3,7 @@ fun main(args: Array<String>) {
     val botToken = args[0]
     val telegramBotService = TelegramBotService(botToken)
     var updateId = 0
-    var chatId: Int
+    var chatId: Long
     val chatIdStringRegex: Regex = "\"chat\":\\{\"id\":(\\d+),".toRegex()
     val updateIdStringRegex: Regex = "\"update_id\":(.+?),".toRegex()
     val messageTextRegex: Regex = "\"text\":\"(.+?)\"".toRegex()
@@ -17,13 +17,13 @@ fun main(args: Array<String>) {
 
         updateId = updateIdStringRegex.find(updates)?.groups?.get(1)?.value?.toIntOrNull()?.plus(1) ?: continue
         val message = messageTextRegex.find(updates)?.groups?.get(1)?.value ?: continue
-        chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toIntOrNull() ?: continue
+        chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
         val data = dataRegex.find(updates)?.groups?.get(1)?.value
 
         if (message.lowercase() == "/start") {
             telegramBotService.sendMenu(chatId)
         }
-        if (data?.lowercase() == "statistics_clicked") {
+        if (data?.lowercase() == STATISTICS_CLICKED) {
             telegramBotService.sendMessage(chatId, "Выучено 10 слов из 10 | 100%")
         }
     }
