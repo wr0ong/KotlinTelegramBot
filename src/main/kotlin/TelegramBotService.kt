@@ -61,8 +61,7 @@ class TelegramBotService(private val botToken: String) {
 
     fun checkNextQuestionAndSend(
         trainer: LearnWordsTrainer,
-        telegramBotService: TelegramBotService,
-        chatId: Int
+        chatId: Long
     ) : String {
         if (trainer.getNextQuestion() == null) return ("Вы выучили все слова в базе")
         else {
@@ -117,12 +116,13 @@ class TelegramBotService(private val botToken: String) {
         }
     }
 
-    fun sendStatistic (trainer: LearnWordsTrainer, chatId: Int): String {
+    fun sendStatistic (trainer: LearnWordsTrainer, chatId: Long): String {
+        val statisticTrainer = trainer.getStatistics()
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
         val sendStatisticBody = """
             {
                 "chat_id": $chatId,
-                "text": "Выучено ${trainer.getStatistics().learnedCount} из ${trainer.getStatistics().totalCount}  слов | ${trainer.getStatistics().percent}%",
+                "text": "Выучено ${statisticTrainer.learnedCount} из ${statisticTrainer.totalCount}  слов | ${statisticTrainer.percent}%",
                 "reply_markup": {
                     "inline_keyboard": [
                         [
