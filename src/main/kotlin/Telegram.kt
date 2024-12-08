@@ -3,6 +3,7 @@ fun main(args: Array<String>) {
     val botToken = args[0]
     val telegramBotService = TelegramBotService(botToken)
     var updateId = 0
+
     var chatId: Long
     val chatIdStringRegex: Regex = "\"chat\":\\{\"id\":(\\d+),".toRegex()
     val updateIdStringRegex: Regex = "\"update_id\":(.+?),".toRegex()
@@ -20,11 +21,21 @@ fun main(args: Array<String>) {
         chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
         val data = dataRegex.find(updates)?.groups?.get(1)?.value
 
-        if (message.lowercase() == "/start") {
+        if ((message.lowercase() == START_OF_BOT) || (data?.lowercase() == START_OF_BOT)) {
             telegramBotService.sendMenu(chatId)
         }
         if (data?.lowercase() == STATISTICS_CLICKED) {
-            telegramBotService.sendMessage(chatId, "Выучено 10 слов из 10 | 100%")
+            telegramBotService.sendStatistic(trainer, chatId)
+        } else if (data?.lowercase() == LEARN_WORDS_CLICKED) {
+            telegramBotService.checkNextQuestionAndSend(trainer, chatId)
+
+        }
+        if (data?.startsWith(CALLBACK_DATA_ANSWER_PREFIX) == true) {
+            val indexOfAnswer = data.substringAfter(CALLBACK_DATA_ANSWER_PREFIX).toInt()
+            if (trainer.checkAnswer(indexOfAnswer)) {
+                telegramBotService.sendMessage(chatId, "Правильно!")
+            } else telegramBotService.sendMessage(chatId, "Неправильно! ${trainer.getCorrectAnswer()}")
+            telegramBotService.checkNextQuestionAndSend(trainer,chatId)
         }
     }
 
