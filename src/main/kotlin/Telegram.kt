@@ -3,7 +3,7 @@ fun main(args: Array<String>) {
     val botToken = args[0]
     val telegramBotService = TelegramBotService(botToken)
     var updateId = 0
-    var chatId: Int
+    var chatId: Long
     val chatIdStringRegex: Regex = "\"chat\":\\{\"id\":(\\d+),".toRegex()
     val updateIdStringRegex: Regex = "\"update_id\":(.+?),".toRegex()
     val messageTextRegex: Regex = "\"text\":\"(.+?)\"".toRegex()

@@ -3,12 +3,6 @@ package org.example
 import LearnWordsTrainer
 import Question
 
-data class Word(
-    val original: String,
-    val translate: String,
-    var correctAnswerCount: Int = 0,
-)
-
 fun Question.asConsoleString(): String {
     val variants = this.variants.mapIndexed { index, i -> "${index + 1} - ${i.translate}" }
         .joinToString("\n", "${this.correctAnswer.original}: \n", "\n----------- \n0 - Меню")
