@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
         updateId = updateIdStringRegex.find(updates)?.groups?.get(1)?.value?.toIntOrNull()?.plus(1) ?: continue
         val message = messageTextRegex.find(updates)?.groups?.get(1)?.value ?: continue
         chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
-        var data = dataRegex.find(updates)?.groups?.get(1)?.value
+        val data = dataRegex.find(updates)?.groups?.get(1)?.value
 
         if (message.lowercase() == START_OF_BOT) {
             telegramBotService.sendMenu(chatId)
