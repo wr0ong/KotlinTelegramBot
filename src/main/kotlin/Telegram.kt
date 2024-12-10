@@ -30,15 +30,7 @@ fun main(args: Array<String>) {
                 chatId,
                 "Выучено ${statisticOfTrainer.learnedCount} из ${statisticOfTrainer.totalCount}  слов | ${statisticOfTrainer.percent}%"
             )
-            chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
-            data = dataRegex.find(updates)?.groups?.get(1)?.value
 
-            if (message.lowercase() == START_OF_BOT) {
-                telegramBotService.sendMenu(chatId)
-            }
-            if (data?.lowercase() == STATISTICS_CLICKED) {
-                telegramBotService.sendMessage(chatId, "Выучено 10 слов из 10 | 100%")
-            }
         }
     }
 }
