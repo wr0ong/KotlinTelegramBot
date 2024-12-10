@@ -16,6 +16,7 @@ class TelegramBotService(private val botToken: String) {
         return response.body()
     }
 
+
     fun sendMessage(chatId: Long, text: String): String {
         val encoded = URLEncoder.encode(
             text,
@@ -39,6 +40,7 @@ class TelegramBotService(private val botToken: String) {
                         [
                             {
                                 "text": "Изучить слова",
+
                                 "callback_data": "$LEARN_WORDS_CLICKED"
                             },
                             {
@@ -61,5 +63,6 @@ class TelegramBotService(private val botToken: String) {
 }
 
 const val LINK_TO_TG_API_BOT = "https://api.telegram.org/bot"
+const val START_OF_BOT = "/start"
 const val STATISTICS_CLICKED = "statistics_clicked"
 const val LEARN_WORDS_CLICKED = "learn_words_clicked"
