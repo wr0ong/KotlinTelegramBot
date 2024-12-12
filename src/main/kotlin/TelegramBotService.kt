@@ -16,6 +16,7 @@ class TelegramBotService(private val botToken: String) {
         return response.body()
     }
 
+
     fun sendMessage(chatId: Long, text: String): String {
         val encoded = URLEncoder.encode(
             text,
@@ -39,6 +40,7 @@ class TelegramBotService(private val botToken: String) {
                         [
                             {
                                 "text": "Изучить слова",
+
                                 "callback_data": "$LEARN_WORDS_CLICKED"
                             },
                             {
