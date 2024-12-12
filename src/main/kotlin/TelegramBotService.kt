@@ -65,52 +65,28 @@ class TelegramBotService(private val botToken: String) {
         trainer: LearnWordsTrainer,
         chatId: Long
     ): String {
-        if (trainer.getNextQuestion() == null) return ("Вы выучили все слова в базе")
+        val question = trainer.getNextQuestion()
+        if (question == null) return ("Вы выучили все слова в базе")
         else {
-            val nextQuestion = trainer.getNextQuestion()
+            val variantsString = question.variants
+                .mapIndexed { index, word ->
+                    """
+                {
+                    "text": "${word.translate}",
+                    "callback_data": "$CALLBACK_DATA_ANSWER_PREFIX${index}"
+                }
+                """.trimIndent()
+                }
+                .joinToString(separator = ",")
 
             val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
             val sendQuestionBody = """
             {
                 "chat_id": $chatId,
-                "text": "${nextQuestion!!.correctAnswer.translate}",
+                "text": "${question.correctAnswer.translate}",
                 "reply_markup": {
                     "inline_keyboard": [
-                        [
-                            {
-                                "text": "${nextQuestion.variants[0].original}",
-                                "callback_data": "${
-                CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(
-                    nextQuestion.variants[0]
-                )
-            }"
-                            },
-                            {
-                                "text": "${nextQuestion.variants[1].original}",
-                                "callback_data": "${
-                CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(
-                    nextQuestion.variants[1]
-                )
-            }"
-                            }
-                        ],
-                        [
-                            {
-                                "text": "${nextQuestion.variants[2].original}",
-                                "callback_data": "${
-                CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(
-                    nextQuestion.variants[2]
-                )
-            }"
-                            },
-                            {
-                                "text": "${nextQuestion.variants[3].original}",
-                                "callback_data": "${
-                CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(
-                    nextQuestion.variants[3]
-                )
-            }"
-                            }
+                        [$variantsString
                         ],
                         [
                         {
