@@ -83,7 +83,7 @@ class TelegramBotService(private val botToken: String) {
             val sendQuestionBody = """
             {
                 "chat_id": $chatId,
-                "text": "${question.correctAnswer.translate}",
+                "text": "${question.correctAnswer.original}",
                 "reply_markup": {
                     "inline_keyboard": [
                         [$variantsString
