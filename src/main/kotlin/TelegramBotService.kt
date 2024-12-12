@@ -61,79 +61,15 @@ class TelegramBotService(private val botToken: String) {
         return response.body()
     }
 
-    fun checkNextQuestionAndSend(
-        trainer: LearnWordsTrainer,
-        chatId: Long
+    fun sendNextMessageJSON(
+        textMessage: String
     ): String {
-        val question = trainer.getNextQuestion()
-        if (question == null) return ("Вы выучили все слова в базе")
-        else {
-            val variantsString = question.variants
-                .mapIndexed { index, word ->
-                    """
-                {
-                    "text": "${word.translate}",
-                    "callback_data": "$CALLBACK_DATA_ANSWER_PREFIX${index}"
-                }
-                """.trimIndent()
-                }
-                .joinToString(separator = ",")
-
-            val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
-            val sendQuestionBody = """
-            {
-                "chat_id": $chatId,
-                "text": "${question.correctAnswer.original}",
-                "reply_markup": {
-                    "inline_keyboard": [
-                        [$variantsString
-                        ],
-                        [
-                        {
-                        "text": "0 - Вернуться в меню",
-                        "callback_data": "$START_OF_BOT"
-                        }
-                        ]
-                    ]
-                }
-            }
-        """.trimIndent()
-
-            val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
-                .header("Content-type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(sendQuestionBody))
-                .build()
-
-            val response = client.send(request, HttpResponse.BodyHandlers.ofString())
-            return response.body()
-
-        }
-    }
-
-    fun sendStatistic(trainer: LearnWordsTrainer, chatId: Long): String {
-        val statisticOfTrainer = trainer.getStatistics()
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
-        val sendStatisticBody = """
-            {
-                "chat_id": $chatId,
-                "text": "Выучено ${statisticOfTrainer.learnedCount} из ${statisticOfTrainer.totalCount}  слов | ${statisticOfTrainer.percent}%",
-                "reply_markup": {
-                    "inline_keyboard": [
-                        [
-                            {
-                                "text": "Вернуться в меню",
-                                "callback_data": "$START_OF_BOT"
-                            }
-                        ]
-                    ]
-                }
-            }
-        """.trimIndent()
-
         val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
             .header("Content-type", "application/json")
-            .POST(HttpRequest.BodyPublishers.ofString(sendStatisticBody))
+            .POST(HttpRequest.BodyPublishers.ofString(textMessage))
             .build()
+
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
         return response.body()
     }
