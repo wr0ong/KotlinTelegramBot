@@ -64,37 +64,31 @@ class TelegramBotService(private val botToken: String) {
     fun checkNextQuestionAndSend(
         trainer: LearnWordsTrainer,
         chatId: Long
-    ) : String {
+    ): String {
         if (trainer.getNextQuestion() == null) return ("Вы выучили все слова в базе")
         else {
-            val nextQuestion = trainer.getNextQuestion()
+            val question = trainer.getNextQuestion()
+            if (question == null) return ("Вы выучили все слова в базе")
+            else {
+                val variantsString = question.variants
+                    .mapIndexed { index, word ->
+                        """
+                {
+                    "text": "${word.translate}",
+                    "callback_data": "$CALLBACK_DATA_ANSWER_PREFIX${index}"
+                }
+                """.trimIndent()
+                    }
+                    .joinToString(separator = ",")
 
-            val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
-            val sendQuestionBody = """
+                val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
+                val sendQuestionBody = """
             {
                 "chat_id": $chatId,
-                "text": "${nextQuestion!!.correctAnswer.translate}",
+                "text": "${question.correctAnswer.original}",
                 "reply_markup": {
                     "inline_keyboard": [
-                        [
-                            {
-                                "text": "${nextQuestion.variants[0].original}",
-                                "callback_data": "${CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(nextQuestion.variants[0])}"
-                            },
-                            {
-                                "text": "${nextQuestion.variants[1].original}",
-                                "callback_data": "${CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(nextQuestion.variants[1])}"
-                            }
-                        ],
-                        [
-                            {
-                                "text": "${nextQuestion.variants[2].original}",
-                                "callback_data": "${CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(nextQuestion.variants[2])}"
-                            },
-                            {
-                                "text": "${nextQuestion.variants[3].original}",
-                                "callback_data": "${CALLBACK_DATA_ANSWER_PREFIX + nextQuestion.variants.indexOf(nextQuestion.variants[3])}"
-                            }
+                        [$variantsString
                         ],
                         [
                         {
@@ -107,18 +101,19 @@ class TelegramBotService(private val botToken: String) {
             }
         """.trimIndent()
 
-            val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
-                .header("Content-type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(sendQuestionBody))
-                .build()
+                val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
+                    .header("Content-type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(sendQuestionBody))
+                    .build()
 
-            val response = client.send(request, HttpResponse.BodyHandlers.ofString())
-            return response.body()
+                val response = client.send(request, HttpResponse.BodyHandlers.ofString())
+                return response.body()
 
+            }
         }
     }
 
-    fun sendStatistic (trainer: LearnWordsTrainer, chatId: Long): String {
+    fun sendStatistic(trainer: LearnWordsTrainer, chatId: Long): String {
         val statisticTrainer = trainer.getStatistics()
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
         val sendStatisticBody = """
