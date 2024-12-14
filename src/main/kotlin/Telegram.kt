@@ -34,7 +34,7 @@ fun main(args: Array<String>) {
             if (trainer.checkAnswer(indexOfAnswer)) {
                 telegramBotService.sendMessage(chatId, "Правильно!")
             } else telegramBotService.sendMessage(chatId, "Неправильно! ${trainer.getCorrectAnswer()}")
-            telegramBotService.checkNextQuestionAndSend(trainer,chatId)
+            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
         }
     }
 }
