@@ -60,9 +60,23 @@ class TelegramBotService(private val botToken: String) {
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
         return response.body()
     }
+
+    fun sendNextMessageJSON(
+        textMessage: String
+    ): String {
+        val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
+        val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
+            .header("Content-type", "application/json")
+            .POST(HttpRequest.BodyPublishers.ofString(textMessage))
+            .build()
+
+        val response = client.send(request, HttpResponse.BodyHandlers.ofString())
+        return response.body()
+    }
 }
 
 const val LINK_TO_TG_API_BOT = "https://api.telegram.org/bot"
 const val START_OF_BOT = "/start"
 const val STATISTICS_CLICKED = "statistics_clicked"
 const val LEARN_WORDS_CLICKED = "learn_words_clicked"
+const val CALLBACK_DATA_ANSWER_PREFIX = "answer_"

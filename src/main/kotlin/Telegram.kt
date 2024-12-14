@@ -21,16 +21,75 @@ fun main(args: Array<String>) {
         chatId = chatIdStringRegex.find(updates)?.groups?.get(1)?.value?.toLongOrNull() ?: continue
         val data = dataRegex.find(updates)?.groups?.get(1)?.value
 
-        if (message.lowercase() == START_OF_BOT) {
+        if ((message.lowercase() == START_OF_BOT) || (data?.lowercase() == START_OF_BOT)) {
             telegramBotService.sendMenu(chatId)
         }
         if (data?.lowercase() == STATISTICS_CLICKED) {
-            val statisticOfTrainer = trainer.getStatistics()
-            telegramBotService.sendMessage(
-                chatId,
-                "Выучено ${statisticOfTrainer.learnedCount} из ${statisticOfTrainer.totalCount}  слов | ${statisticOfTrainer.percent}%"
-            )
-
+            telegramBotService.sendNextMessageJSON(createStatistic(trainer, chatId))
+        } else if (data?.lowercase() == LEARN_WORDS_CLICKED) {
+            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
         }
     }
+}
+
+fun checkNextQuestionAndCreateMessage(trainer: LearnWordsTrainer, chatId: Long): String {
+    val question = trainer.getNextQuestion()
+    val createQuestionBody: String
+    if (question == null) {
+        createQuestionBody = "Вы выучили все слова в базе"
+        return createQuestionBody
+    } else {
+        val variantsString = question.variants
+            .mapIndexed { index, word ->
+                """
+                {
+                    "text": "${word.translate}",
+                    "callback_data": "$CALLBACK_DATA_ANSWER_PREFIX${index}"
+                }
+                """.trimIndent()
+            }
+            .joinToString(separator = ",")
+
+        createQuestionBody = """
+            {
+                "chat_id": $chatId,
+                "text": "${question.correctAnswer.original}",
+                "reply_markup": {
+                    "inline_keyboard": [
+                        [$variantsString
+                        ],
+                        [
+                        {
+                        "text": "0 - Вернуться в меню",
+                        "callback_data": "$START_OF_BOT"
+                        }
+                        ]
+                    ]
+                }
+            }
+        """.trimIndent()
+    }
+    return createQuestionBody
+}
+
+fun createStatistic(trainer: LearnWordsTrainer, chatId: Long): String {
+    val statisticOfTrainer = trainer.getStatistics()
+    val createStatisticBody = """
+            {
+                "chat_id": $chatId,
+                "text": "Выучено ${statisticOfTrainer.learnedCount} из ${statisticOfTrainer.totalCount}  слов | ${statisticOfTrainer.percent}%",
+                "reply_markup": {
+                    "inline_keyboard": [
+                        [
+                            {
+                                "text": "Вернуться в меню",
+                                "callback_data": "$START_OF_BOT"
+                            }
+                        ]
+                    ]
+                }
+            }
+        """.trimIndent()
+
+    return createStatisticBody
 }
