@@ -29,6 +29,13 @@ fun main(args: Array<String>) {
         } else if (data?.lowercase() == LEARN_WORDS_CLICKED) {
             telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
         }
+        if (data?.startsWith(CALLBACK_DATA_ANSWER_PREFIX) == true) {
+            val indexOfAnswer = data.substringAfter(CALLBACK_DATA_ANSWER_PREFIX).toInt()
+            if (trainer.checkAnswer(indexOfAnswer)) {
+                telegramBotService.sendMessage(chatId, "Правильно!")
+            } else telegramBotService.sendMessage(chatId, "Неправильно! ${trainer.getCorrectAnswer()}")
+            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
+        }
     }
 }
 
