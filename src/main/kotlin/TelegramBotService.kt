@@ -8,8 +8,14 @@ import java.net.http.HttpResponse
 import java.nio.charset.StandardCharsets
 
 class TelegramBotService(private val botToken: String) {
-
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
     private val client: HttpClient = HttpClient.newBuilder().build()
+
+    fun getJson(): Json{
+        return json
+    }
 
     fun getUpdates(updateId: Long): String {
         val urlGetUpdates = "$LINK_TO_TG_API_BOT$botToken/getUpdates?offset=$updateId"
@@ -31,7 +37,7 @@ class TelegramBotService(private val botToken: String) {
         return response.body()
     }
 
-    fun sendMenu(json: Json, chatId: Long): String {
+    fun sendMenu(chatId: Long): String {
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
         val requestBody = SendMessageRequest (
             chatId = chatId,
@@ -53,12 +59,14 @@ class TelegramBotService(private val botToken: String) {
     }
 
     fun sendNextMessageJSON(
-        textMessage: String
+        messageRequest: SendMessageRequest
     ): String {
+
+        val requestBodyString = json.encodeToString(messageRequest)
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
         val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
             .header("Content-type", "application/json")
-            .POST(HttpRequest.BodyPublishers.ofString(textMessage))
+            .POST(HttpRequest.BodyPublishers.ofString(requestBodyString))
             .build()
 
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())

@@ -70,10 +70,6 @@ fun main(args: Array<String>) {
     val botToken = args[0]
     val telegramBotService = TelegramBotService(botToken)
     var lastUpdateId = 0L
-
-    val json = Json {
-        ignoreUnknownKeys = true
-    }
     val trainer = LearnWordsTrainer()
 
     while (true) {
@@ -81,7 +77,7 @@ fun main(args: Array<String>) {
         val responseString: String = telegramBotService.getUpdates(lastUpdateId)
         println(responseString)
 
-        val response: Response = json.decodeFromString(responseString)
+        val response: Response = telegramBotService.getJson().decodeFromString(responseString)
         val updates = response.result
         val firstUpdate = updates.firstOrNull() ?: continue
         val updateId = firstUpdate.updateId
@@ -92,31 +88,37 @@ fun main(args: Array<String>) {
         val data = firstUpdate.callbackQuery?.data
 
         if (((message?.lowercase() == START_OF_BOT) || (data?.lowercase() == START_OF_BOT)) && chatId != null) {
-            telegramBotService.sendMenu(json, chatId)
+            telegramBotService.sendMenu(chatId)
         }
         if ((data?.lowercase() == STATISTICS_CLICKED) && chatId != null) {
-            telegramBotService.sendNextMessageJSON(createStatistic(json, trainer, chatId))
+            telegramBotService.sendNextMessageJSON(createStatistic(trainer, chatId))
         } else if ((data?.lowercase() == LEARN_WORDS_CLICKED) && chatId != null) {
-            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(json, trainer, chatId))
+            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
         }
         if ((data?.startsWith(CALLBACK_DATA_ANSWER_PREFIX) == true) && chatId != null) {
             val indexOfAnswer = data.substringAfter(CALLBACK_DATA_ANSWER_PREFIX).toInt()
             if (trainer.checkAnswer(indexOfAnswer)) {
                 telegramBotService.sendMessage(chatId, "Правильно!")
             } else telegramBotService.sendMessage(chatId, "Неправильно! ${trainer.getCorrectAnswer()}")
-            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(json, trainer, chatId))
+            telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
         }
     }
 }
 
-fun checkNextQuestionAndCreateMessage(json: Json, trainer: LearnWordsTrainer, chatId: Long): String {
+fun checkNextQuestionAndCreateMessage(trainer: LearnWordsTrainer, chatId: Long): SendMessageRequest {
     val question = trainer.getNextQuestion()
-    val createQuestionBody: String
+    val requestBody: SendMessageRequest
     if (question == null) {
-        createQuestionBody = "Вы выучили все слова в базе"
-        return createQuestionBody
+        requestBody = SendMessageRequest(
+            chatId = chatId,
+            text = "Вы выучили все слова",
+            replyMarkup = ReplyMarkup(
+                listOf(listOf(InlineKeyboard(text = "Вернуться в меню", callbackData = START_OF_BOT)))
+            )
+        )
+        return requestBody
     } else {
-        val requestBody = SendMessageRequest(
+        requestBody = SendMessageRequest(
             chatId = chatId,
             text = question.correctAnswer.original,
             replyMarkup = ReplyMarkup(
@@ -127,13 +129,12 @@ fun checkNextQuestionAndCreateMessage(json: Json, trainer: LearnWordsTrainer, ch
                 }, listOf(InlineKeyboard(text = "Вернуться в меню", callbackData = START_OF_BOT)))
             )
         )
-        val requestBodyString = json.encodeToString(requestBody)
 
-        return requestBodyString
+        return requestBody
     }
 }
 
-fun createStatistic(json: Json, trainer: LearnWordsTrainer, chatId: Long): String {
+fun createStatistic(trainer: LearnWordsTrainer, chatId: Long): SendMessageRequest {
     val statisticOfTrainer = trainer.getStatistics()
     val requestBody = SendMessageRequest(
         chatId = chatId,
@@ -146,8 +147,5 @@ fun createStatistic(json: Json, trainer: LearnWordsTrainer, chatId: Long): Strin
             )
         )
     )
-
-    val requestBodyString = json.encodeToString(requestBody)
-
-    return requestBodyString
+    return requestBody
 }
