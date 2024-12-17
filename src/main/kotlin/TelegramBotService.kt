@@ -1,3 +1,5 @@
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import java.net.URI
 import java.net.URLEncoder
 import java.net.http.HttpClient
@@ -6,10 +8,16 @@ import java.net.http.HttpResponse
 import java.nio.charset.StandardCharsets
 
 class TelegramBotService(private val botToken: String) {
-
+    private val json = Json {
+        ignoreUnknownKeys = true
+    }
     private val client: HttpClient = HttpClient.newBuilder().build()
 
-    fun getUpdates(updateId: Int): String {
+    fun getJson(): Json{
+        return json
+    }
+
+    fun getUpdates(updateId: Long): String {
         val urlGetUpdates = "$LINK_TO_TG_API_BOT$botToken/getUpdates?offset=$updateId"
         val request = HttpRequest.newBuilder().uri(URI.create(urlGetUpdates)).build()
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
@@ -31,43 +39,34 @@ class TelegramBotService(private val botToken: String) {
 
     fun sendMenu(chatId: Long): String {
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
-        val sendMenuBody = """
-            {
-                "chat_id": $chatId,
-                "text": "Основное меню",
-                "reply_markup": {
-                    "inline_keyboard": [
-                        [
-                            {
-                                "text": "Изучить слова",
-
-                                "callback_data": "$LEARN_WORDS_CLICKED"
-                            },
-                            {
-                                "text": "Статистика",
-                                "callback_data": "$STATISTICS_CLICKED"
-                            }
-                        ]
-                    ]
-                }
-            }
-        """.trimIndent()
-
+        val requestBody = SendMessageRequest (
+            chatId = chatId,
+            text = "Основное меню",
+            replyMarkup = ReplyMarkup(
+                listOf(listOf(
+                    InlineKeyboard(text = "Изучить слова", callbackData = LEARN_WORDS_CLICKED),
+                    InlineKeyboard(text = "Статистика", callbackData = STATISTICS_CLICKED)
+                ))
+            )
+        )
+        val sendBodyString = json.encodeToString(requestBody)
         val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
             .header("Content-type", "application/json")
-            .POST(HttpRequest.BodyPublishers.ofString(sendMenuBody))
+            .POST(HttpRequest.BodyPublishers.ofString(sendBodyString))
             .build()
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
         return response.body()
     }
 
     fun sendNextMessageJSON(
-        textMessage: String
+        messageRequest: SendMessageRequest
     ): String {
+
+        val requestBodyString = json.encodeToString(messageRequest)
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
         val request = HttpRequest.newBuilder().uri(URI.create(sendMessage))
             .header("Content-type", "application/json")
-            .POST(HttpRequest.BodyPublishers.ofString(textMessage))
+            .POST(HttpRequest.BodyPublishers.ofString(requestBodyString))
             .build()
 
         val response = client.send(request, HttpResponse.BodyHandlers.ofString())
