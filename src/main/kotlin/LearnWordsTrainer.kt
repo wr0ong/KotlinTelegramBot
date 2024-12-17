@@ -13,6 +13,7 @@ data class Question(
 )
 
 class LearnWordsTrainer(
+    private val fileName: String = "words.txt",
     private val learnedAnswerCount: Int = LEARNED_ANSWER_COUNT,
     private val countOfQuestionWord: Int = COUNT_OF_QUESTION_WORD,
 ) {
@@ -56,37 +57,45 @@ class LearnWordsTrainer(
             val indexOfCorrectAnswer = it.variants.indexOf(it.correctAnswer)
             if (indexOfCorrectAnswer == answerOfUser) {
                 it.correctAnswer.correctAnswerCount++
-                saveDictionary(dictionary)
+                saveDictionary()
                 true
             } else false
         } ?: false
     }
 
-    private fun saveDictionary(dictionary: List<Word>) {
+    private fun saveDictionary() {
         var newText = dictionary.joinToString { "${it.original}|${it.translate}|${it.correctAnswerCount}\n" }
         newText = newText.replace(", ", "")
-        val wordFile: File = File("words.txt")
+        val wordFile = File(fileName)
         wordFile.writeText(newText)
     }
 
     private fun loadDictionary(): List<Word> {
         try {
+            val wordFile = File(fileName)
+            if (!wordFile.exists()) {
+                File("words.txt").copyTo(wordFile)
+            }
+
             val dictionary = mutableListOf<Word>()
-            val wordFile = File("words.txt")
             wordFile.forEachLine {
                 val lines = it.split("|")
-                val word: Word =
-                    Word(
-                        original = lines[0],
-                        translate = lines[1],
-                        correctAnswerCount = lines.getOrNull(2)?.toIntOrNull() ?: 0
-                    )
+                val word = Word(
+                    original = lines[0],
+                    translate = lines[1],
+                    correctAnswerCount = lines.getOrNull(2)?.toIntOrNull() ?: 0
+                )
                 dictionary.add(word)
             }
             return dictionary
         } catch (e: IndexOutOfBoundsException) {
             throw IllegalStateException("Некорректный файл")
         }
+    }
+
+    fun resetProgress() {
+        dictionary.forEach { it.correctAnswerCount = 0 }
+        saveDictionary()
     }
 
 }

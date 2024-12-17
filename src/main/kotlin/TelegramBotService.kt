@@ -13,7 +13,7 @@ class TelegramBotService(private val botToken: String) {
     }
     private val client: HttpClient = HttpClient.newBuilder().build()
 
-    fun getJson(): Json{
+    fun getJson(): Json {
         return json
     }
 
@@ -39,14 +39,16 @@ class TelegramBotService(private val botToken: String) {
 
     fun sendMenu(chatId: Long): String {
         val sendMessage = "$LINK_TO_TG_API_BOT$botToken/sendMessage"
-        val requestBody = SendMessageRequest (
+        val requestBody = SendMessageRequest(
             chatId = chatId,
             text = "Основное меню",
             replyMarkup = ReplyMarkup(
-                listOf(listOf(
-                    InlineKeyboard(text = "Изучить слова", callbackData = LEARN_WORDS_CLICKED),
-                    InlineKeyboard(text = "Статистика", callbackData = STATISTICS_CLICKED)
-                ))
+                listOf(
+                    listOf(
+                        InlineKeyboard(text = "Изучить слова", callbackData = LEARN_WORDS_CLICKED),
+                        InlineKeyboard(text = "Статистика", callbackData = STATISTICS_CLICKED)
+                    ), listOf(InlineKeyboard(text = "Сбросить статистику", callbackData = RESET_CLICKED))
+                )
             )
         )
         val sendBodyString = json.encodeToString(requestBody)
@@ -79,3 +81,4 @@ const val START_OF_BOT = "/start"
 const val STATISTICS_CLICKED = "statistics_clicked"
 const val LEARN_WORDS_CLICKED = "learn_words_clicked"
 const val CALLBACK_DATA_ANSWER_PREFIX = "answer_"
+const val RESET_CLICKED = "reset_clicked"
