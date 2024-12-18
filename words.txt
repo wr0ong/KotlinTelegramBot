@@ -1,12 +1,463 @@
-hello|привет|0
-dog|собака|0
-cat|кошка|0
-fish|рыба|0
-find|поиск|0
-boy|мальчик|0
-girl|девочка|0
-ball|мяч|0
-bed|кровать|0
-bad|плохо|0
-good|хорошо|0
-phone|телефон|0
+grandchildren|внуки
+granddaughter|внучка
+grandfather|дедушка
+grandmother|бабушка
+grandparents|бабушка и дедушка
+grandson|внук
+half-brother|брат с одной стороны (по отцу или матери)
+half-sister|сестра с одной стороны (по отцу или матери)
+husband|муж
+lover|любовник(-ца)
+marriage|брак
+mother|мать
+mother-in-law|теща, свекровь
+nephew|племянник
+niece|племянница
+parents|родители
+relative|родственник
+sister|сестра
+son|сын
+stepbrother|сводный брат
+stepfather|отчим
+stepmother|мачеха
+stepsister|сводная сестра
+twins|близнецы
+uncle|дядя
+wedding|свадьба
+widow|вдова
+widower|вдовец
+wife|жена
+to care|заботиться
+to love|любить
+to miss|скучать
+to support|поддерживать
+belt|ремень
+blouse|блузка
+boots|ботинки
+bracelet|браслет
+cap|кепка
+chain|цепочка
+cloak|плащ
+clothes|одежда
+coat|пальто
+dress|платье
+earrings|серьги
+formal clothes|официальная одежда
+hat|шляпа
+high boots|сапоги
+high heels|высокие каблуки
+hoodie|худи, толстовка
+jacket|пиджак
+jeans|джинсы
+necklace|ожерелье
+pocket|карман
+pyjamas|пижама
+raincoat|плащ-дождевик
+ring|кольцо
+shirt|рубашка
+shoes|туфли
+shorts|шорты
+skirt|юбка
+slippers|тапочки
+socks|носки
+sportswear|спортивный костюм
+suit|костюм
+sweater|свитер
+swimwear|купальный костюм
+trainers|кроссовки
+T-shirt|футболка
+umbrella|зонт
+underwear|нижнее белье
+uniform|униформа
+zip|застежка-молния
+to dress up|наряжаться
+to try on|примерить
+to wear|носить
+to zip up|застегнуть
+apple|яблоко
+bacon|бекон
+banana|банан
+beef|говядина
+berries|ягоды
+biscuits|печенье
+breakfast|завтрак
+butter|масло
+carrot|морковь
+cereal|хлопья
+chicken|курица
+coffee|кофе
+corn|кукуруза
+cucumber|огурец
+dinner|ужин
+drinks|напитки
+duck|утка
+aubergine|баклажан
+fish|рыба
+fruits|фрукты
+garlic|чеснок
+grapes|виноград
+ham|ветчина
+jam|варенье
+juice|сок
+lemon|лимон
+lettuce|салат-латук
+lunch|обед
+milk|молоко
+mineral water|минеральная вода
+mushroom|гриб
+nuts|орехи
+onion|лук
+pancake|блинчик
+peach|персик
+pepper|перец
+pineapple|ананас
+plum|слива
+pork|свинина
+potato|картофель
+salmon|лосось
+sandwich|сэндвич
+sausage|колбаса
+shrimp|креветка
+snack|перекус
+soda|газировка
+strawberry|клубника
+taste|вкус
+tea|чай
+toast|тост
+tomato|помидор
+turkey|индейка
+vegetables|овощи
+water|вода
+watermelon|арбуз
+yoghurt|йогурт
+to bake|печь
+to boil|кипеть, варить
+to cook|готовить
+to cool|охлаждать
+to cut|резать
+to drink|пить
+to eat|есть
+to fry|жарить
+to heat|подогревать
+to stew|тушить
+to taste|пробовать
+actor|актер
+artist|художник
+break|перерыв
+career|карьера
+company|компания
+cook|повар
+designer|дизайнер
+director|директор
+doctor|врач
+engineer|инженер
+fireman|пожарный
+hamster|хомяк
+horse|лошадь
+kitten|котенок
+mouse|мышь
+parrot|попугай
+pet|питомец
+pig|свинья
+puppy|щенок
+rabbit|кролик
+rat|крыса
+sheep|овца
+bear|медведь
+camel|верблюд
+crocodile|крокодил
+deer|олень
+elephant|слон
+fox|лиса
+giraffe|жираф
+hippo|бегемот
+kangaroo|кенгуру
+lion|лев
+monkey|обезьяна
+panda|панда
+rhino|носорог
+snake|змея
+tiger|тигр
+wild|дикий
+wolf|волк
+bee|пчела
+bug|жук
+butterfly|бабочка
+fly|муха
+insect|насекомое
+spider|паук
+bird|птица
+duck|утка
+eagle|орел
+owl|сова
+penguin|пингвин
+pigeon|голубь
+raven|ворон
+sparrow|воробей
+swan|лебедь
+to bark|лаять
+to bite|кусать
+to catch|ловить
+to feed|кормить
+to fly|летать
+to hiss|шипеть
+to pet|гладить
+to purr|мурлыкать
+to scream|кричать
+bush|куст
+cactus|кактус
+flower|цветок
+grass|трава
+leaf|лист
+lily|лилия
+oak|дуб
+pine|сосна
+root|корень
+rose|роза
+tree|дерево
+to bloom|цвести
+to fruit|плодоносить
+to grow|расти
+to plant|сажать
+to water|поливать
+Christmas|Рождество
+coloured lights|цветные фонарики (гирлянды)
+decorations|украшения
+guest|гость
+holiday|праздник
+New Year|Новый год
+New Year's tree|новогодняя елка
+present|подарок
+snowman|снеговик
+treat|угощение
+balloon|воздушный шар
+birthday|день рождения
+cake|торт
+candle|свеча
+party|вечеринка
+wish|желание
+to be born|родиться
+to celebrate|праздновать
+to congratulate|поздравлять
+to enjoy|наслаждаться
+to get older|становиться старше
+to have fun|развлекаться
+to invite|пригласить
+to like|нравиться
+to make a wish|загадать желание
+to prepare|готовиться
+to visit|навещать
+bakery|булочная, пекарня
+bank|банк
+bench|скамья
+bookshop|книжный магазин
+bridge|мост
+building|здание
+cafe|кафе
+car park|парковка
+cathedral|собор
+cheap|дешевый
+church|церковь
+coin|монета
+corner|угол
+crossroads|перекресток
+customer|покупатель
+dead end|тупик
+expensive|дорогой
+fountain|фонтан
+hospital|больница
+left|налево
+library|библиотека
+lift|лифт
+mall|торговый центр
+market|рынок
+monument|памятник
+museum|музей
+nightclub|ночной клуб
+park|парк
+price|цена
+public transport|общественный транспорт
+receipt|чек
+restaurant|ресторан
+right|направо
+road|дорога
+sale|распродажа
+school|школа
+shop|магазин
+square|площадь
+stadium|стадион
+station|станция
+stop|остановка
+street|улица
+subway|подземный переход, метро
+supermarket|супермаркет
+university|университет
+to cost|стоить
+to cross|пересекать, переходить
+to find|находить
+to go|идти
+to go sightseeing|осматривать достопримечательности
+to pay|платить
+to sell|продавать
+to stop|остановиться
+and|и
+as|как
+because|потому что
+but|но
+if|если
+how|как
+or|или
+finger|палец
+fist|кулак
+foot|ступня
+forehead|лоб
+hair|волосы
+hand|кистьруки
+heart|сердце
+heel|пятка
+hip|бедро
+jaw|челюсть
+kidney|почка
+knee|колено
+leg|нога
+lips|губы
+little finger|мизинец
+liver|печень
+lung|легкое
+mouth|рот
+muscle|мышца
+nail|ноготь
+neck|шея
+nerve|нерв
+nose|нос
+palm|ладонь
+rib|ребро
+ring finger|безымянный палец
+skeleton|скелет
+skin|кожа
+skull|череп
+stomach|желудок
+throat|горло
+thumb|большой палец
+toe|палец на ноге
+tongue|язык
+tooth|зуб
+wrist|запястье
+tobe|быть
+to breathe|дышать
+to hear|слышать
+to hold|держать
+to lie|лежать
+to look|смотреть
+to see|видеть
+to sit|сидеть
+to speak|говорить
+to touch|трогать
+to walk|ходить
+attractive|привлекательный
+bald|лысый
+beard|борода
+beautiful|красивый
+beauty|красота
+blond|белокурый
+bushy|густой
+common|обычный
+curly|кудрявый
+cute|милый
+dark|темный
+fair|белокурый
+fat|толстый
+figure|фигура
+flush|румянец
+freckles|веснушки
+ginger|рыжий
+haircut|прическа
+height|рост
+hooked|крючковатый
+moustache|усы
+oval|овальный
+pale|бледный
+plump|пухлый
+round|круглый
+short|короткий
+slim|тонкий
+square|квадратный
+straight|прямой
+tall|высокий
+thin|худой
+ugly|уродливый
+wavy|волнистый
+weight|вес
+active|активный
+angry|злой
+blue|грустный
+boring|скучный
+brave|храбрый
+calm|спокойный
+careful|осторожный
+character|характер
+cheerful|радостный
+clever|умный
+confused|сбитыйстолку
+creative|креативный
+cruel|жестокий
+curious|любопытный
+easy-going|легкий на подъем
+emotional|эмоциональный
+excited|взволнованный
+fair|честный
+friendly|дружелюбный
+generous|щедрый
+genius|гениальный
+gentle|мягкий
+glad|довольный
+greedy|жадный
+happy|счастливый
+hard-working|трудолюбивый
+honest|честный
+intelligent|умный
+jealous|ревнивый
+kind|добрый
+lazy|ленивый
+loyal|верный
+lucky|удачливый
+moody|хмурый
+nervous|нервный
+open|открытый
+optimistic|оптимистичный
+patient|терпеливый
+proud|гордый
+quiet|тихий
+reliable|надежный
+romantic|романтичный
+rude|грубый
+sad|грустный
+shy|стеснительный
+sensitive|чувствительный
+serious|серьезный
+stupid|глупый
+talented|талантливый
+tough|жесткий
+upset|расстроенный
+wise|мудрый
+witty|остроумный
+to act|вестися
+to behave|вестися
+to tell|рассказывать
+to try|стараться
+adoption|усыновление
+aunt|тётя
+boyfriend|парень
+bride|невеста
+brother|брат
+brother-in-law|шурин
+cousin|двоюродный брат или сестра
+daughter|дочь
+daughter-in-law|сноха
+divorce|развод
+engagement|помолвка
+ex-husband|бывшиймуж
+ex-wife|бывшаяжена
+family|семья
+father|отец
+foster family|приёмная семья
