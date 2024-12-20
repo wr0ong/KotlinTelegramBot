@@ -20,7 +20,7 @@ jobs:
           java-version: '17'
 
       - name: Build with Gradle
-        run: ./gradlew shadowJar
+        run: sudo ./gradlew shadowJar
 
       - name: Rename file
         run: sudo mv build/libs/KotlinTelegramBot-1.0-SNAPSHOT-all.jar bot.jar
