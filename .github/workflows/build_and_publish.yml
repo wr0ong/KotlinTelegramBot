@@ -23,7 +23,7 @@ jobs:
         run: ./gradlew shadowJar
 
       - name: Rename file
-        run: mv build/libs/KotlinTelegramBot-1.0-SNAPSHOT-all.jar bot.jar
+        run: sudo mv build/libs/KotlinTelegramBot-1.0-SNAPSHOT-all.jar bot.jar
 
       - name: Deploy jar to VPS
         uses: appleboy/scp-action@master
@@ -50,4 +50,4 @@ jobs:
           username:  ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            systemctl restart english-learning-bot
+            sudo systemctl restart english-learning-bot
