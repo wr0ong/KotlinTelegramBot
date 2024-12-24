@@ -20,7 +20,7 @@ data class Response(
 @Serializable
 data class Message(
     @SerialName("text")
-    val text: String,
+    val text: String? = null,
     @SerialName("chat")
     val chat: Chat
 )
@@ -99,15 +99,14 @@ fun checkNextQuestionAndCreateMessage(trainer: LearnWordsTrainer, chatId: Long):
         requestBody = SendMessageRequest(
             chatId = chatId,
             text = question.correctAnswer.original,
-            replyMarkup = ReplyMarkup(
-                listOf(question.variants.mapIndexed { index, word ->
+            replyMarkup = ReplyMarkup(question.variants.mapIndexed { index, word ->
+                listOf(
                     InlineKeyboard(
                         text = word.translate, callbackData = "$CALLBACK_DATA_ANSWER_PREFIX$index"
-                    )
-                }, listOf(InlineKeyboard(text = "Вернуться в меню", callbackData = START_OF_BOT)))
+                    ))} + listOf(listOf(InlineKeyboard(text = "Вернуться в меню", callbackData = START_OF_BOT)))
+
             )
         )
-
         return requestBody
     }
 }
@@ -121,7 +120,7 @@ fun createStatistic(trainer: LearnWordsTrainer, chatId: Long): SendMessageReques
             listOf(
                 listOf(
                     InlineKeyboard(text = "Вернуться в меню", callbackData = START_OF_BOT)
-                )
+                ), listOf(InlineKeyboard(text = "Сбросить статистику", callbackData = RESET_CLICKED))
             )
         )
     )
