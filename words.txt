@@ -1,463 +1,463 @@
-grandchildren|внуки
-granddaughter|внучка
-grandfather|дедушка
-grandmother|бабушка
-grandparents|бабушка и дедушка
-grandson|внук
-half-brother|брат с одной стороны (по отцу или матери)
-half-sister|сестра с одной стороны (по отцу или матери)
-husband|муж
-lover|любовник(-ца)
-marriage|брак
-mother|мать
-mother-in-law|теща, свекровь
-nephew|племянник
-niece|племянница
-parents|родители
-relative|родственник
-sister|сестра
-son|сын
-stepbrother|сводный брат
-stepfather|отчим
-stepmother|мачеха
-stepsister|сводная сестра
-twins|близнецы
-uncle|дядя
-wedding|свадьба
-widow|вдова
-widower|вдовец
-wife|жена
-to care|заботиться
-to love|любить
-to miss|скучать
-to support|поддерживать
-belt|ремень
-blouse|блузка
-boots|ботинки
-bracelet|браслет
-cap|кепка
-chain|цепочка
-cloak|плащ
-clothes|одежда
-coat|пальто
-dress|платье
-earrings|серьги
-formal clothes|официальная одежда
-hat|шляпа
-high boots|сапоги
-high heels|высокие каблуки
-hoodie|худи, толстовка
-jacket|пиджак
-jeans|джинсы
-necklace|ожерелье
-pocket|карман
-pyjamas|пижама
-raincoat|плащ-дождевик
-ring|кольцо
-shirt|рубашка
-shoes|туфли
-shorts|шорты
-skirt|юбка
-slippers|тапочки
-socks|носки
-sportswear|спортивный костюм
-suit|костюм
-sweater|свитер
-swimwear|купальный костюм
-trainers|кроссовки
-T-shirt|футболка
-umbrella|зонт
-underwear|нижнее белье
-uniform|униформа
-zip|застежка-молния
-to dress up|наряжаться
-to try on|примерить
-to wear|носить
-to zip up|застегнуть
-apple|яблоко
-bacon|бекон
-banana|банан
-beef|говядина
-berries|ягоды
-biscuits|печенье
-breakfast|завтрак
-butter|масло
-carrot|морковь
-cereal|хлопья
-chicken|курица
-coffee|кофе
-corn|кукуруза
-cucumber|огурец
-dinner|ужин
-drinks|напитки
-duck|утка
-aubergine|баклажан
-fish|рыба
-fruits|фрукты
-garlic|чеснок
-grapes|виноград
-ham|ветчина
-jam|варенье
-juice|сок
-lemon|лимон
-lettuce|салат-латук
-lunch|обед
-milk|молоко
-mineral water|минеральная вода
-mushroom|гриб
-nuts|орехи
-onion|лук
-pancake|блинчик
-peach|персик
-pepper|перец
-pineapple|ананас
-plum|слива
-pork|свинина
-potato|картофель
-salmon|лосось
-sandwich|сэндвич
-sausage|колбаса
-shrimp|креветка
-snack|перекус
-soda|газировка
-strawberry|клубника
-taste|вкус
-tea|чай
-toast|тост
-tomato|помидор
-turkey|индейка
-vegetables|овощи
-water|вода
-watermelon|арбуз
-yoghurt|йогурт
-to bake|печь
-to boil|кипеть, варить
-to cook|готовить
-to cool|охлаждать
-to cut|резать
-to drink|пить
-to eat|есть
-to fry|жарить
-to heat|подогревать
-to stew|тушить
-to taste|пробовать
-actor|актер
-artist|художник
-break|перерыв
-career|карьера
-company|компания
-cook|повар
-designer|дизайнер
-director|директор
-doctor|врач
-engineer|инженер
-fireman|пожарный
-hamster|хомяк
-horse|лошадь
-kitten|котенок
-mouse|мышь
-parrot|попугай
-pet|питомец
-pig|свинья
-puppy|щенок
-rabbit|кролик
-rat|крыса
-sheep|овца
-bear|медведь
-camel|верблюд
-crocodile|крокодил
-deer|олень
-elephant|слон
-fox|лиса
-giraffe|жираф
-hippo|бегемот
-kangaroo|кенгуру
-lion|лев
-monkey|обезьяна
-panda|панда
-rhino|носорог
-snake|змея
-tiger|тигр
-wild|дикий
-wolf|волк
-bee|пчела
-bug|жук
-butterfly|бабочка
-fly|муха
-insect|насекомое
-spider|паук
-bird|птица
-duck|утка
-eagle|орел
-owl|сова
-penguin|пингвин
-pigeon|голубь
-raven|ворон
-sparrow|воробей
-swan|лебедь
-to bark|лаять
-to bite|кусать
-to catch|ловить
-to feed|кормить
-to fly|летать
-to hiss|шипеть
-to pet|гладить
-to purr|мурлыкать
-to scream|кричать
-bush|куст
-cactus|кактус
-flower|цветок
-grass|трава
-leaf|лист
-lily|лилия
-oak|дуб
-pine|сосна
-root|корень
-rose|роза
-tree|дерево
-to bloom|цвести
-to fruit|плодоносить
-to grow|расти
-to plant|сажать
-to water|поливать
-Christmas|Рождество
-coloured lights|цветные фонарики (гирлянды)
-decorations|украшения
-guest|гость
-holiday|праздник
-New Year|Новый год
-New Year's tree|новогодняя елка
-present|подарок
-snowman|снеговик
-treat|угощение
-balloon|воздушный шар
-birthday|день рождения
-cake|торт
-candle|свеча
-party|вечеринка
-wish|желание
-to be born|родиться
-to celebrate|праздновать
-to congratulate|поздравлять
-to enjoy|наслаждаться
-to get older|становиться старше
-to have fun|развлекаться
-to invite|пригласить
-to like|нравиться
-to make a wish|загадать желание
-to prepare|готовиться
-to visit|навещать
-bakery|булочная, пекарня
-bank|банк
-bench|скамья
-bookshop|книжный магазин
-bridge|мост
-building|здание
-cafe|кафе
-car park|парковка
-cathedral|собор
-cheap|дешевый
-church|церковь
-coin|монета
-corner|угол
-crossroads|перекресток
-customer|покупатель
-dead end|тупик
-expensive|дорогой
-fountain|фонтан
-hospital|больница
-left|налево
-library|библиотека
-lift|лифт
-mall|торговый центр
-market|рынок
-monument|памятник
-museum|музей
-nightclub|ночной клуб
-park|парк
-price|цена
-public transport|общественный транспорт
-receipt|чек
-restaurant|ресторан
-right|направо
-road|дорога
-sale|распродажа
-school|школа
-shop|магазин
-square|площадь
-stadium|стадион
-station|станция
-stop|остановка
-street|улица
-subway|подземный переход, метро
-supermarket|супермаркет
-university|университет
-to cost|стоить
-to cross|пересекать, переходить
-to find|находить
-to go|идти
-to go sightseeing|осматривать достопримечательности
-to pay|платить
-to sell|продавать
-to stop|остановиться
-and|и
-as|как
-because|потому что
-but|но
-if|если
-how|как
-or|или
-finger|палец
-fist|кулак
-foot|ступня
-forehead|лоб
-hair|волосы
-hand|кистьруки
-heart|сердце
-heel|пятка
-hip|бедро
-jaw|челюсть
-kidney|почка
-knee|колено
-leg|нога
-lips|губы
-little finger|мизинец
-liver|печень
-lung|легкое
-mouth|рот
-muscle|мышца
-nail|ноготь
-neck|шея
-nerve|нерв
-nose|нос
-palm|ладонь
-rib|ребро
-ring finger|безымянный палец
-skeleton|скелет
-skin|кожа
-skull|череп
-stomach|желудок
-throat|горло
-thumb|большой палец
-toe|палец на ноге
-tongue|язык
-tooth|зуб
-wrist|запястье
-tobe|быть
-to breathe|дышать
-to hear|слышать
-to hold|держать
-to lie|лежать
-to look|смотреть
-to see|видеть
-to sit|сидеть
-to speak|говорить
-to touch|трогать
-to walk|ходить
-attractive|привлекательный
-bald|лысый
-beard|борода
-beautiful|красивый
-beauty|красота
-blond|белокурый
-bushy|густой
-common|обычный
-curly|кудрявый
-cute|милый
-dark|темный
-fair|белокурый
-fat|толстый
-figure|фигура
-flush|румянец
-freckles|веснушки
-ginger|рыжий
-haircut|прическа
-height|рост
-hooked|крючковатый
-moustache|усы
-oval|овальный
-pale|бледный
-plump|пухлый
-round|круглый
-short|короткий
-slim|тонкий
-square|квадратный
-straight|прямой
-tall|высокий
-thin|худой
-ugly|уродливый
-wavy|волнистый
-weight|вес
-active|активный
-angry|злой
-blue|грустный
-boring|скучный
-brave|храбрый
-calm|спокойный
-careful|осторожный
-character|характер
-cheerful|радостный
-clever|умный
-confused|сбитыйстолку
-creative|креативный
-cruel|жестокий
-curious|любопытный
-easy-going|легкий на подъем
-emotional|эмоциональный
-excited|взволнованный
-fair|честный
-friendly|дружелюбный
-generous|щедрый
-genius|гениальный
-gentle|мягкий
-glad|довольный
-greedy|жадный
-happy|счастливый
-hard-working|трудолюбивый
-honest|честный
-intelligent|умный
-jealous|ревнивый
-kind|добрый
-lazy|ленивый
-loyal|верный
-lucky|удачливый
-moody|хмурый
-nervous|нервный
-open|открытый
-optimistic|оптимистичный
-patient|терпеливый
-proud|гордый
-quiet|тихий
-reliable|надежный
-romantic|романтичный
-rude|грубый
-sad|грустный
-shy|стеснительный
-sensitive|чувствительный
-serious|серьезный
-stupid|глупый
-talented|талантливый
-tough|жесткий
-upset|расстроенный
-wise|мудрый
-witty|остроумный
-to act|вестися
-to behave|вестися
-to tell|рассказывать
-to try|стараться
-adoption|усыновление
-aunt|тётя
-boyfriend|парень
-bride|невеста
-brother|брат
-brother-in-law|шурин
-cousin|двоюродный брат или сестра
-daughter|дочь
-daughter-in-law|сноха
-divorce|развод
-engagement|помолвка
-ex-husband|бывшиймуж
-ex-wife|бывшаяжена
-family|семья
-father|отец
-foster family|приёмная семья
+grandchildren|внуки|0
+granddaughter|внучка|0
+grandfather|дедушка|0
+grandmother|бабушка|0
+grandparents|бабушка и дедушка|0
+grandson|внук|0
+half-brother|брат с одной стороны (по отцу или матери)|0
+half-sister|сестра с одной стороны (по отцу или матери)|0
+husband|муж|0
+lover|любовник(-ца)|0
+marriage|брак|0
+mother|мать|0
+mother-in-law|теща/свекровь|0
+nephew|племянник|0
+niece|племянница|0
+parents|родители|0
+relative|родственник|0
+sister|сестра|0
+son|сын|0
+stepbrother|сводный брат|0
+stepfather|отчим|0
+stepmother|мачеха|0
+stepsister|сводная сестра|0
+twins|близнецы|0
+uncle|дядя|0
+wedding|свадьба|0
+widow|вдова|0
+widower|вдовец|0
+wife|жена|0
+to care|заботиться|0
+to love|любить|0
+to miss|скучать|0
+to support|поддерживать|0
+belt|ремень|0
+blouse|блузка|0
+boots|ботинки|0
+bracelet|браслет|0
+cap|кепка|0
+chain|цепочка|0
+cloak|плащ|0
+clothes|одежда|0
+coat|пальто|0
+dress|платье|0
+earrings|серьги|0
+formal clothes|официальная одежда|0
+hat|шляпа|0
+high boots|сапоги|0
+high heels|высокие каблуки|0
+hoodie|худитолстовка|0
+jacket|пиджак|0
+jeans|джинсы|0
+necklace|ожерелье|0
+pocket|карман|0
+pyjamas|пижама|0
+raincoat|плащ-дождевик|0
+ring|кольцо|0
+shirt|рубашка|0
+shoes|туфли|0
+shorts|шорты|0
+skirt|юбка|0
+slippers|тапочки|0
+socks|носки|0
+sportswear|спортивный костюм|0
+suit|костюм|0
+sweater|свитер|0
+swimwear|купальный костюм|0
+trainers|кроссовки|0
+T-shirt|футболка|0
+umbrella|зонт|0
+underwear|нижнее белье|0
+uniform|униформа|0
+zip|застежка-молния|0
+to dress up|наряжаться|0
+to try on|примерить|0
+to wear|носить|0
+to zip up|застегнуть|0
+apple|яблоко|0
+bacon|бекон|0
+banana|банан|0
+beef|говядина|0
+berries|ягоды|0
+biscuits|печенье|0
+breakfast|завтрак|0
+butter|масло|0
+carrot|морковь|0
+cereal|хлопья|0
+chicken|курица|0
+coffee|кофе|0
+corn|кукуруза|0
+cucumber|огурец|0
+dinner|ужин|0
+drinks|напитки|0
+duck|утка|0
+aubergine|баклажан|0
+fish|рыба|0
+fruits|фрукты|0
+garlic|чеснок|0
+grapes|виноград|0
+ham|ветчина|0
+jam|варенье|0
+juice|сок|0
+lemon|лимон|0
+lettuce|салат-латук|0
+lunch|обед|0
+milk|молоко|0
+mineral water|минеральная вода|0
+mushroom|гриб|0
+nuts|орехи|0
+onion|лук|0
+pancake|блинчик|0
+peach|персик|0
+pepper|перец|0
+pineapple|ананас|0
+plum|слива|0
+pork|свинина|0
+potato|картофель|0
+salmon|лосось|0
+sandwich|сэндвич|0
+sausage|колбаса|0
+shrimp|креветка|0
+snack|перекус|0
+soda|газировка|0
+strawberry|клубника|0
+taste|вкус|0
+tea|чай|0
+toast|тост|0
+tomato|помидор|0
+turkey|индейка|0
+vegetables|овощи|0
+water|вода|0
+watermelon|арбуз|0
+yoghurt|йогурт|0
+to bake|печь|0
+to boil|кипеть/варить|0
+to cook|готовить|0
+to cool|охлаждать|0
+to cut|резать|0
+to drink|пить|0
+to eat|есть|0
+to fry|жарить|0
+to heat|подогревать|0
+to stew|тушить|0
+to taste|пробовать|0
+actor|актер|0
+artist|художник|0
+break|перерыв|0
+career|карьера|0
+company|компания|0
+cook|повар|0
+designer|дизайнер|0
+director|директор|0
+doctor|врач|0
+engineer|инженер|0
+fireman|пожарный|0
+hamster|хомяк|0
+horse|лошадь|0
+kitten|котенок|0
+mouse|мышь|0
+parrot|попугай|0
+pet|питомец|0
+pig|свинья|0
+puppy|щенок|0
+rabbit|кролик|0
+rat|крыса|0
+sheep|овца|0
+bear|медведь|0
+camel|верблюд|0
+crocodile|крокодил|0
+deer|олень|0
+elephant|слон|0
+fox|лиса|0
+giraffe|жираф|0
+hippo|бегемот|0
+kangaroo|кенгуру|0
+lion|лев|0
+monkey|обезьяна|0
+panda|панда|0
+rhino|носорог|0
+snake|змея|0
+tiger|тигр|0
+wild|дикий|0
+wolf|волк|0
+bee|пчела|0
+bug|жук|0
+butterfly|бабочка|0
+fly|муха|0
+insect|насекомое|0
+spider|паук|0
+bird|птица|0
+duck|утка|0
+eagle|орел|0
+owl|сова|0
+penguin|пингвин|0
+pigeon|голубь|0
+raven|ворон|0
+sparrow|воробей|0
+swan|лебедь|0
+to bark|лаять|0
+to bite|кусать|0
+to catch|ловить|0
+to feed|кормить|0
+to fly|летать|0
+to hiss|шипеть|0
+to pet|гладить|0
+to purr|мурлыкать|0
+to scream|кричать|0
+bush|куст|0
+cactus|кактус|0
+flower|цветок|0
+grass|трава|0
+leaf|лист|0
+lily|лилия|0
+oak|дуб|0
+pine|сосна|0
+root|корень|0
+rose|роза|0
+tree|дерево|0
+to bloom|цвести|0
+to fruit|плодоносить|0
+to grow|расти|0
+to plant|сажать|0
+to water|поливать|0
+Christmas|Рождество|0
+coloured lights|цветные фонарики (гирлянды)|0
+decorations|украшения|0
+guest|гость|0
+holiday|праздник|0
+New Year|Новый год|0
+New Year's tree|новогодняя елка|0
+present|подарок|0
+snowman|снеговик|0
+treat|угощение|0
+balloon|воздушный шар|0
+birthday|день рождения|0
+cake|торт|0
+candle|свеча|0
+party|вечеринка|0
+wish|желание|0
+to be born|родиться|0
+to celebrate|праздновать|0
+to congratulate|поздравлять|0
+to enjoy|наслаждаться|0
+to get older|становиться старше|0
+to have fun|развлекаться|0
+to invite|пригласить|0
+to like|нравиться|0
+to make a wish|загадать желание|0
+to prepare|готовиться|0
+to visit|навещать|0
+bakery|булочная пекарня|0
+bank|банк|0
+bench|скамья|0
+bookshop|книжный магазин|0
+bridge|мост|0
+building|здание|0
+cafe|кафе|0
+car park|парковка|0
+cathedral|собор|0
+cheap|дешевый|0
+church|церковь|0
+coin|монета|0
+corner|угол|0
+crossroads|перекресток|0
+customer|покупатель|0
+dead end|тупик|0
+expensive|дорогой|0
+fountain|фонтан|0
+hospital|больница|0
+left|налево|0
+library|библиотека|0
+lift|лифт|0
+mall|торговый центр|0
+market|рынок|0
+monument|памятник|0
+museum|музей|0
+nightclub|ночной клуб|0
+park|парк|0
+price|цена|0
+public transport|общественный транспорт|0
+receipt|чек|0
+restaurant|ресторан|0
+right|направо|0
+road|дорога|0
+sale|распродажа|0
+school|школа|0
+shop|магазин|0
+square|площадь|0
+stadium|стадион|0
+station|станция|0
+stop|остановка|0
+street|улица|0
+subway|подземный переходметро|0
+supermarket|супермаркет|0
+university|университет|0
+to cost|стоить|0
+to cross|пересекать/переходить|0
+to find|находить|0
+to go|идти|0
+to go sightseeing|осматривать достопримечательности|0
+to pay|платить|0
+to sell|продавать|0
+to stop|остановиться|0
+and|и|0
+as|как|0
+because|потому что|0
+but|но|0
+if|если|0
+how|как|0
+or|или|0
+finger|палец|0
+fist|кулак|0
+foot|ступня|0
+forehead|лоб|0
+hair|волосы|0
+hand|кисть руки|0
+heart|сердце|0
+heel|пятка|0
+hip|бедро|0
+jaw|челюсть|0
+kidney|почка|0
+knee|колено|0
+leg|нога|0
+lips|губы|0
+little finger|мизинец|0
+liver|печень|0
+lung|легкое|0
+mouth|рот|0
+muscle|мышца|0
+nail|ноготь|0
+neck|шея|0
+nerve|нерв|0
+nose|нос|0
+palm|ладонь|0
+rib|ребро|0
+ring finger|безымянный палец|0
+skeleton|скелет|0
+skin|кожа|0
+skull|череп|0
+stomach|желудок|0
+throat|горло|0
+thumb|большой палец|0
+toe|палец на ноге|0
+tongue|язык|0
+tooth|зуб|0
+wrist|запястье|0
+tobe|быть|0
+to breathe|дышать|0
+to hear|слышать|0
+to hold|держать|0
+to lie|лежать|0
+to look|смотреть|0
+to see|видеть|0
+to sit|сидеть|0
+to speak|говорить|0
+to touch|трогать|0
+to walk|ходить|0
+attractive|привлекательный|0
+bald|лысый|0
+beard|борода|0
+beautiful|красивый|0
+beauty|красота|0
+blond|белокурый|0
+bushy|густой|0
+common|обычный|0
+curly|кудрявый|0
+cute|милый|0
+dark|темный|0
+fair|белокурый|0
+fat|толстый|0
+figure|фигура|0
+flush|румянец|0
+freckles|веснушки|0
+ginger|рыжий|0
+haircut|прическа|0
+height|рост|0
+hooked|крючковатый|0
+moustache|усы|0
+oval|овальный|0
+pale|бледный|0
+plump|пухлый|0
+round|круглый|0
+short|короткий|0
+slim|тонкий|0
+square|квадратный|0
+straight|прямой|0
+tall|высокий|0
+thin|худой|0
+ugly|уродливый|0
+wavy|волнистый|0
+weight|вес|0
+active|активный|0
+angry|злой|0
+blue|грустный|0
+boring|скучный|0
+brave|храбрый|0
+calm|спокойный|0
+careful|осторожный|0
+character|характер|0
+cheerful|радостный|0
+clever|умный|0
+confused|сбитый с толку|0
+creative|креативный|0
+cruel|жестокий|0
+curious|любопытный|0
+easy-going|легкий на подъем|0
+emotional|эмоциональный|0
+excited|взволнованный|0
+fair|честный|0
+friendly|дружелюбный|0
+generous|щедрый|0
+genius|гениальный|0
+gentle|мягкий|0
+glad|довольный|0
+greedy|жадный|0
+happy|счастливый|0
+hard-working|трудолюбивый|0
+honest|честный|0
+intelligent|умный|0
+jealous|ревнивый|0
+kind|добрый|0
+lazy|ленивый|0
+loyal|верный|0
+lucky|удачливый|0
+moody|хмурый|0
+nervous|нервный|0
+open|открытый|0
+optimistic|оптимистичный|0
+patient|терпеливый|0
+proud|гордый|0
+quiet|тихий|0
+reliable|надежный|0
+romantic|романтичный|0
+rude|грубый|0
+sad|грустный|0
+shy|стеснительный|0
+sensitive|чувствительный|0
+serious|серьезный|0
+stupid|глупый|0
+talented|талантливый|0
+tough|жесткий|0
+upset|расстроенный|0
+wise|мудрый|0
+witty|остроумный|0
+to act|вестися|0
+to behave|вестися|0
+to tell|рассказывать|0
+to try|стараться|0
+adoption|усыновление|0
+aunt|тётя|0
+boyfriend|парень|0
+bride|невеста|0
+brother|брат|0
+brother-in-law|шурин|0
+cousin|двоюродный брат или сестра|0
+daughter|дочь|0
+daughter-in-law|сноха|0
+divorce|развод|0
+engagement|помолвка|0
+ex-husband|бывший муж|0
+ex-wife|бывшая жена|0
+family|семья|0
+father|отец|0
+foster family|приёмная семья|0
