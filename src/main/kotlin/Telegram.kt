@@ -98,11 +98,11 @@ fun checkNextQuestionAndCreateMessage(trainer: LearnWordsTrainer, chatId: Long):
     } else {
         requestBody = SendMessageRequest(
             chatId = chatId,
-            text = question.correctAnswer.original,
+            text = question.correctAnswer.original.capitalize(),
             replyMarkup = ReplyMarkup(question.variants.mapIndexed { index, word ->
                 listOf(
                     InlineKeyboard(
-                        text = word.translate, callbackData = "$CALLBACK_DATA_ANSWER_PREFIX$index"
+                        text = word.translate.capitalize(), callbackData = "$CALLBACK_DATA_ANSWER_PREFIX$index"
                     ))} + listOf(listOf(InlineKeyboard(text = "Вернуться в меню", callbackData = START_OF_BOT)))
 
             )
@@ -150,7 +150,7 @@ fun handleUpdate(
         val indexOfAnswer = data.substringAfter(CALLBACK_DATA_ANSWER_PREFIX).toInt()
         if (trainer.checkAnswer(indexOfAnswer)) {
             telegramBotService.sendMessage(chatId, "Правильно!")
-        } else telegramBotService.sendMessage(chatId, "Неправильно! ${trainer.getCorrectAnswer()}")
+        } else telegramBotService.sendMessage(chatId, "Неправильно! ${trainer.getCorrectAnswer().capitalize()}")
         telegramBotService.sendNextMessageJSON(checkNextQuestionAndCreateMessage(trainer, chatId))
     }
     if (data?.lowercase() == RESET_CLICKED) {
